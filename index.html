@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151021">
+  <meta name="description" content="لعبة خفيفة من 12 سؤال عن تفاصيلك واختياراتك ✨">
+  <title>لعبة التفاصيل ✨</title>
+
+  <!-- الخط يعمل مع الإنترنت، ويوجد خط بديل عند فتح الملف بدون إنترنت. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- طبقات الديكور لا تستقبل الضغط، حتى لا تعيق استخدام اللعبة. -->
+  <div class="page-glow glow-one" aria-hidden="true"></div>
+  <div class="page-glow glow-two" aria-hidden="true"></div>
+  <div class="page-glow glow-three" aria-hidden="true"></div>
+  <div class="floating-layer" id="floating-layer" aria-hidden="true"></div>
+  <div class="effects-layer" id="effects-layer" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <button class="brand" id="brand-home" type="button" aria-label="العودة إلى شاشة البداية">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3C17.2 10.2 20.8 13.8 28 15C20.8 16.2 17.2 19.8 16 27C14.8 19.8 11.2 16.2 4 15C11.2 13.8 14.8 10.2 16 3Z" fill="currentColor"/>
+            <path d="M25 3.5C25.4 5.8 26.3 6.7 28.5 7C26.3 7.4 25.4 8.3 25 10.5C24.6 8.3 23.7 7.4 21.5 7C23.7 6.7 24.6 5.8 25 3.5Z" fill="currentColor" opacity=".65"/>
+          </svg>
+        </span>
+        <span>لعبة <b>✦</b> التفاصيل</span>
+      </button>
+      <span class="header-note"><i class="status-dot" aria-hidden="true"></i> 12 سؤال خفيف عن اختياراتك</span>
+    </header>
+
+    <main class="main-content">
+      <!-- ==================== شاشة الترحيب ==================== -->
+      <section id="welcome-screen" class="screen welcome-screen is-active" aria-labelledby="welcome-title">
+        <div class="welcome-layout">
+          <div class="welcome-copy">
+            <div class="eyebrow"><span aria-hidden="true">✦</span> لعبة صغيرة عن تفاصيلك <span aria-hidden="true">✦</span></div>
+            <h1 id="welcome-title">جاهزة نلعب؟<br><span>12 سؤال عنك ✨</span></h1>
+            <p class="welcome-lead">
+              شوية أسئلة خفيفة عن أكلك ومشروبك وذوقك واختياراتك…
+              اختاري الإجابة اللي شبهك، وشوفي النتيجة في الآخر 😄
+            </p>
+
+            <div class="love-rule">
+              <span class="rule-icon" aria-hidden="true">🎁</span>
+              <div>
+                <strong>فيه هدية في نهاية اللعبة!</strong>
+                <p>محتاجة <b>10 إجابات صح من 12</b> علشان تفتحي الهدية.</p>
+              </div>
+            </div>
+
+            <button id="start-button" class="primary-button start-button" type="button">
+              يلا نبدأ <span aria-hidden="true">✨</span>
+            </button>
+            <p class="soft-note">خدي وقتك… دي لعبة خفيفة والمهم نضحك ونقضي وقت لطيف ✨</p>
+          </div>
+
+          <!-- الرسمة مصنوعة بالكامل بـ CSS وHTML، بدون صور خارجية. -->
+          <div class="welcome-art" aria-hidden="true">
+            <div class="art-halo"></div>
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <span class="orbit-star star-one">✦</span>
+            <span class="orbit-star star-two">✧</span>
+            <span class="orbit-star star-three">✦</span>
+
+            <div class="love-letter">
+              <div class="letter-top"><span>كارت اللعبة</span><span>✨</span></div>
+              <div class="letter-heart">؟</div>
+              <p>12 سؤال<br>عن تفاصيلك</p>
+              <div class="letter-lines"><i></i><i></i><i></i></div>
+              <span class="letter-signature">يلا نبدأ ✨</span>
+            </div>
+
+            <div class="floating-sticker sticker-one">😄</div>
+            <div class="floating-sticker sticker-two">🎁</div>
+            <div class="floating-sticker sticker-three">✨</div>
+            <div class="art-caption"><span>✦</span> شوية أسئلة وضحك من غير تعقيد</div>
+          </div>
+        </div>
+
+        <div class="how-it-works" aria-label="طريقة اللعب">
+          <div class="step-item">
+            <span class="step-icon" aria-hidden="true">💭</span>
+            <div><strong>اقري السؤال</strong><span>12 سؤال عن اختياراتك</span></div>
+          </div>
+          <div class="step-connector" aria-hidden="true">✦</div>
+          <div class="step-item">
+            <span class="step-icon" aria-hidden="true">✅</span>
+            <div><strong>اختاري إجابتك</strong><span>كل إجابة صح = نقطة</span></div>
+          </div>
+          <div class="step-connector" aria-hidden="true">✦</div>
+          <div class="step-item">
+            <span class="step-icon" aria-hidden="true">🎁</span>
+            <div><strong>افتحي الهدية</strong><span>من 10 إجابات صح</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== شاشة الأسئلة ==================== -->
+      <section id="quiz-screen" class="screen quiz-screen" hidden aria-labelledby="question-title">
+        <div class="quiz-wrap">
+          <div class="quiz-heading">
+            <div>
+              <span class="eyebrow compact">تحدي التفاصيل <span aria-hidden="true">✦</span></span>
+              <h2>يلا نشوف إجاباتك 😄</h2>
+            </div>
+            <div class="score-pill" aria-live="polite">النقاط <strong id="live-score">0</strong><span aria-hidden="true">★</span></div>
+          </div>
+
+          <div class="progress-area">
+            <div class="progress-meta">
+              <span id="question-counter">السؤال 1 من 12</span>
+              <span id="progress-percent">8%</span>
+            </div>
+            <div id="progress-track" class="progress-track" role="progressbar" aria-label="تقدمك في الأسئلة" aria-valuemin="0" aria-valuemax="12" aria-valuenow="1">
+              <span id="progress-bar"></span>
+            </div>
+          </div>
+
+          <form id="answer-form" class="question-card glass-card">
+            <div class="question-card-top">
+              <span class="question-tag">اختاري اللي شبهك <span aria-hidden="true">✦</span></span>
+              <span id="question-emoji" class="question-emoji" aria-hidden="true">💭</span>
+            </div>
+            <h2 id="question-title">السؤال هيوصل هنا…</h2>
+            <p class="question-hint">اختاري إجابة واحدة بس</p>
+
+            <!-- JavaScript يضع هنا اختيارين أو ثلاثة كما هي موجودة في بيانات كل سؤال. -->
+            <div id="choices-container" class="choices-list" role="radiogroup" aria-label="اختيارات الإجابة"></div>
+
+            <div class="answer-footer">
+              <span id="selection-hint" class="selection-hint">خدي وقتك واختاري براحتك ✨</span>
+              <button id="confirm-answer" class="primary-button" type="submit" disabled>
+                تأكيد الإجابة <span aria-hidden="true">✔️</span>
+              </button>
+            </div>
+          </form>
+          <p class="quiz-footnote"><span aria-hidden="true">🔒</span> كل إجابة بتتحسب مرة واحدة بس</p>
+        </div>
+      </section>
+
+      <!-- ==================== رد الفعل بعد كل إجابة ==================== -->
+      <section id="reaction-screen" class="screen reaction-screen" hidden aria-live="polite" aria-labelledby="reaction-title">
+        <div class="reaction-card glass-card">
+          <div id="reaction-art" class="reaction-art correct" aria-hidden="true">
+            <span class="reaction-ring ring-back"></span>
+            <span class="reaction-ring ring-front"></span>
+            <span id="reaction-emoji">🥳</span>
+            <span class="reaction-sparkle sparkle-a">✦</span>
+            <span class="reaction-sparkle sparkle-b">✧</span>
+            <span class="reaction-sparkle sparkle-c">★</span>
+          </div>
+          <span id="reaction-kicker" class="eyebrow compact">إجابة صحيحة</span>
+          <h2 id="reaction-title"></h2>
+          <p id="reaction-subtitle"></p>
+          <div class="reaction-score">نقاطك الحالية <strong id="reaction-score-value">0</strong><span aria-hidden="true">★</span></div>
+          <button id="next-question" class="primary-button" type="button">يلا على السؤال اللي بعده <span aria-hidden="true">✨</span></button>
+        </div>
+      </section>
+
+      <!-- شاشة احتياطية لا تظهر إلا إذا كانت بيانات الأسئلة ناقصة. -->
+      <section id="incomplete-screen" class="screen status-screen" hidden aria-labelledby="incomplete-title">
+        <div class="status-card glass-card">
+          <div class="status-icon" aria-hidden="true">🧩</div>
+          <span class="eyebrow compact">مراجعة بيانات اللعبة</span>
+          <h2 id="incomplete-title">الأسئلة محتاجة مراجعة ✨</h2>
+          <p>اللعبة محتاجة <strong>12 سؤال</strong> علشان النتيجة تتحسب بشكل صحيح.</p>
+          <p class="small-muted">راجع بيانات الأسئلة الموجودة في ملف script.js ثم افتح الصفحة من جديد.</p>
+          <div class="button-row">
+            <button id="incomplete-restart" class="primary-button" type="button">إعادة المحاولة 🔁</button>
+            <button id="incomplete-home" class="secondary-button" type="button">الرجوع للبداية</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== شاشة النتيجة ==================== -->
+      <section id="results-screen" class="screen results-screen" hidden aria-labelledby="result-title">
+        <div class="results-card glass-card">
+          <div id="result-icon" class="result-icon" aria-hidden="true">🏆</div>
+          <span class="eyebrow compact">النتيجة النهائية</span>
+          <h2 id="result-title"></h2>
+          <p id="result-message" class="result-message"></p>
+
+          <div id="score-ring" class="score-ring" aria-label="النتيجة من 12">
+            <div class="score-ring-inner"><strong id="final-score">0</strong><span>من 12</span></div>
+          </div>
+
+          <div class="result-stats">
+            <div class="stat-item stat-correct"><span>إجابات صحيحة</span><strong id="correct-count">0</strong><small>✓</small></div>
+            <div class="stat-item stat-wrong"><span>إجابات غير صحيحة</span><strong id="incorrect-count">0</strong><small>×</small></div>
+          </div>
+          <p id="result-note" class="result-note"></p>
+          <div class="button-row result-actions">
+            <button id="gift-button" class="primary-button" type="button" hidden>افتحي الهدية 🎁</button>
+            <button id="retry-button" class="secondary-button" type="button">العب تاني 🔁</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== شاشة الهدية ==================== -->
+      <!-- لا توجد وسيلة للوصول لهذه الشاشة إلا بعد تسجيل 10 إجابات صحيحة من 12. -->
+      <section id="gift-screen" class="screen gift-screen" hidden aria-labelledby="gift-title">
+        <div class="gift-card glass-card">
+          <div class="gift-visual" aria-hidden="true">
+            <span class="gift-glow"></span>
+            <span class="gift-emoji">🎁</span>
+            <span class="gift-car">🚗</span>
+            <span class="gift-heart">✨</span>
+          </div>
+          <span class="eyebrow compact">كسبتي التحدي</span>
+          <h2 id="gift-title">الهدية اتفتحت! 🎉</h2>
+          <p id="gift-location-message" class="gift-message"></p>
+          <button id="reveal-gift" class="primary-button" type="button">طب وريني الهدية بقى! 😄</button>
+          <div id="gift-secret" class="gift-secret" hidden>
+            <span class="secret-icon" aria-hidden="true">🤫</span>
+            <p id="gift-reveal-message"></p>
+          </div>
+          <button id="gift-replay" class="text-button" type="button">نلعب تاني من الأول 🔁</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>12 سؤال</span><b aria-hidden="true">✦</b><span>عن تفاصيلك واختياراتك</span></footer>
+  </div>
+
+  <noscript>
+    <div class="noscript-message">علشان اللعبة تشتغل، فعّلي JavaScript في المتصفح ✨</div>
+  </noscript>
+  <script src="script.js"></script>
+</body>
+</html>
